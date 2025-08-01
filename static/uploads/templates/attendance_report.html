@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تقرير الحضور</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <h2>تقرير الحضور والغياب</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>اسم الطالب</th>
+        <th>عدد الحضور</th>
+        <th>عدد الغياب</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for student in students %}
+      <tr>
+        <td>{{ student.student_name }}</td>
+        <td>{{ student.present_count }}</td>
+        <td>{{ student.absent_count }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <br>
+  <a href="/teacher">العودة للمعلم</a>
+</body>
+</html>

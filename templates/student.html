@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>لوحة الطالب</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <h2>مرحبًا {{ session['user'] }}</h2>
+  <h3>الشيتات المتاحة</h3>
+  <ul>
+    {% for sheet in sheets %}
+      <li>
+        {{ sheet.title }} |
+        <a href="/download/{{ sheet.filename }}">تحميل</a>
+        <form method="POST" action="/upload_answer" enctype="multipart/form-data" style="display:inline;">
+          <input type="hidden" name="sheet_id" value="{{ sheet.id }}">
+          <input type="file" name="file" required>
+          <button type="submit">إرسال الإجابة</button>
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
+  <h3>الإجابات التي تم إرسالها</h3>
+  <ul>
+    {% for answer in answers %}
+      <li>
+        {{ answer.filename }} - الدرجة: {{ answer.grade or "لم يتم التصحيح بعد" }}
+      </li>
+    {% endfor %}
+  </ul>
+  <br>
+  <a href="/logout">تسجيل الخروج</a>
+</body>
+</html>

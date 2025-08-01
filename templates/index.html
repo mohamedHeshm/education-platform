@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تسجيل الدخول</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <h2>تسجيل الدخول</h2>
+  <form method="POST" action="/login">
+    <label>اسم المستخدم:</label><br>
+    <input type="text" name="username" required><br><br>
+    <label>كلمة السر:</label><br>
+    <input type="password" name="password" required><br><br>
+    <label>الدور:</label><br>
+    <select name="role">
+      <option value="student">طالب</option>
+      <option value="teacher">مدرس</option>
+      <option value="admin">أدمن</option>
+    </select><br><br>
+    <button type="submit">دخول</button>
+  </form>
+</body>
+</html>
